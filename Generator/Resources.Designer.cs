@@ -61,7 +61,44 @@ namespace Generator {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a .
+        ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;sgbd type=&quot;SQLServer&quot;&gt;
+        ///	&lt;commands&gt;
+        ///		&lt;command type=&quot;select&quot;&gt;
+        ///			&lt;select&gt;SELECT&lt;/select&gt;	
+        ///			&lt;distinct&gt;DISTINCT&lt;/distinct&gt;			
+        ///			&lt;all&gt;*&lt;/all&gt;
+        ///			&lt;column&gt;${V1} AS ${V2}&lt;/column&gt;
+        ///			&lt;from&gt;FROM ${V1}&lt;/from&gt;
+        ///			&lt;join&gt;INNER JOIN ${V1} ON 0 = 0 &lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;&lt;/join&gt;
+        ///			&lt;where&gt;WHERE ${V1} = ${V2}&lt;/where&gt;
+        ///			&lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;
+        ///			&lt;top&gt;LIMIT ${V1}&lt;/top&gt;
+        ///		&lt;/command&gt;
+        ///	&lt;/commands&gt;
+        ///&lt;/sgbd&gt;.
+        /// </summary>
+        internal static string PostgreSQLSchema {
+            get {
+                return ResourceManager.GetString("PostgreSQLSchema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;sgbd type=&quot;SQLServer&quot;&gt;
+        ///	&lt;commands&gt;
+        ///		&lt;command type=&quot;select&quot;&gt;
+        ///			&lt;select&gt;SELECT&lt;/select&gt;	
+        ///			&lt;distinct&gt;DISTINCT&lt;/distinct&gt;			
+        ///			&lt;top&gt;TOP ${V1}&lt;/top&gt;
+        ///			&lt;all&gt;*&lt;/all&gt;
+        ///			&lt;column&gt;${V1} AS ${V2}&lt;/column&gt;
+        ///			&lt;from&gt;FROM ${V1}&lt;/from&gt;
+        ///			&lt;join&gt;INNER JOIN ${V1} ON 0 = 0 &lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;&lt;/join&gt;
+        ///			&lt;where&gt;WHERE ${V1} = ${V2}&lt;/where&gt;
+        ///			&lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;
+        ///		&lt;/command&gt;
+        ///	&lt;/commands&gt;
+        ///&lt;/sgbd&gt;.
         /// </summary>
         internal static string SQLServerSchema {
             get {

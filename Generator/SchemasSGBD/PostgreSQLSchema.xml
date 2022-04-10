@@ -3,18 +3,17 @@
 		<command type="select">
 			<select>SELECT</select>	
 			<distinct>DISTINCT</distinct>			
-			<top>TOP ${V1}</top>
 			<all>*</all>
 			<column>${V1} AS ${V2}</column>
 			<from>FROM ${V1}</from>
 			<join>INNER JOIN ${V1} ON 0 = 0 <and>AND ${V1} = ${V2}</and></join>
 			<where>WHERE ${V1} = ${V2}</where>
 			<and>AND ${V1} = ${V2}</and>
-			<orderby>
-				ORDER BY
+			<orderby>ORDER BY 
 				<asc>${V1} ASC</asc>
 				<desc>${V1} DESC</desc>
 			</orderby>
+			<top>LIMIT ${V1}</top>
 		</command>
 	</commands>
 </sgbd>

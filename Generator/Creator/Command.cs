@@ -52,6 +52,8 @@ namespace Generator.Creator
             {
                 case SGBDType.SQLServer:
                     return Resources.SQLServerSchema;
+                case SGBDType.PostgreSQL:
+                    return Resources.PostgreSQLSchema;
                 default:
                     throw new Exception("GetResourceSchemaFromSGBD with invalid SGBD");
             }

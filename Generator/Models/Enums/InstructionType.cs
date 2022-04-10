@@ -18,6 +18,9 @@ namespace Generator.Models.Enums
         JOIN,
         JOIN_AND,
         WHERE,
-        AND
+        AND,
+        ORDERBY,
+        ORDERBY_ASC,
+        ORDERBY_DESC
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Generator.Models.Enums
 {
-    public enum SGBDType
+    public enum OrderType
     {
-        SQLServer,
-        PostgreSQL
+        Asc,
+        Desc
     }
 }

@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SchemasSGBD\PostgreSQLSchema.xml" />
     <None Remove="SchemasSGBD\SQLServerSchema.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="SchemasSGBD\PostgreSQLSchema.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="SchemasSGBD\SQLServerSchema.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

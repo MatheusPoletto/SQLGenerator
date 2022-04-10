@@ -147,6 +147,50 @@ namespace Generator.Extensions
             return sql;
         }
 
+        public static SelectCommand OrderBy(this SelectCommand sql, string field, OrderType orderType = OrderType.Asc)
+        {
+            InstructionType type = InstructionType.ORDERBY;
+            string command = sql
+                .GetCommandText(type);
 
+            InstructionType orderTypeInstruction = orderType == OrderType.Asc ? 
+                InstructionType.ORDERBY_ASC : InstructionType.ORDERBY_DESC;
+
+            string orderCommand = sql
+                .GetCommandText(orderTypeInstruction)
+                .Replace(ValueTags.V1, field);
+
+            command += orderCommand;
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
+
+        public static SelectCommand OrderBy(this SelectCommand sql, List<OrderBy> orderItems)
+        {
+            InstructionType type = InstructionType.ORDERBY;
+            string command = sql
+                .GetCommandText(type);
+
+            foreach (var order in orderItems)
+            {
+                InstructionType orderTypeInstruction = order.OrderType == OrderType.Asc ?
+                  InstructionType.ORDERBY_ASC : InstructionType.ORDERBY_DESC;
+
+                var orderCommand = sql
+                   .GetCommandText(orderTypeInstruction)
+                   .Replace(ValueTags.V1, order.Field);
+
+               
+
+                command += orderCommand + ", ";
+            }
+
+            if (command.EndsWith(", "))
+                command = command.Substring(0, command.Length - 2);
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
     }
 }
