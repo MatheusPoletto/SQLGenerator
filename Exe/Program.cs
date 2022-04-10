@@ -81,4 +81,25 @@ var sql6 = new InsertCommand(SGBDType.SQLServer)
 
 Console.WriteLine(sql6);
 
+var sql7 = new UpdateCommand(SGBDType.SQLServer)
+    .Update()
+    .Table("TestTable")
+    .SetColumns(new List<string>()
+    {
+        "Id",
+        "Name"
+    })
+    .Where("Id", "@Id")
+    .And("Enabled", "@Enabled");
+
+Console.WriteLine(sql7);
+
+var sql8 = new DeleteCommand(SGBDType.SQLServer)
+    .Delete()
+    .From("TestTable")
+    .Where("Id", "@Id")
+    .And("Enabled", "@Enabled");
+
+Console.WriteLine(sql8);
+
 Console.ReadLine();

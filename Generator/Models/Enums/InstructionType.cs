@@ -28,6 +28,10 @@ namespace SQLGenerator.Models.Enums
         INTO,
         VALUES,
         VALUE,
+        UPDATE,
+        TABLE,
+        SET,
+        DELETE,
         END
     }
 }

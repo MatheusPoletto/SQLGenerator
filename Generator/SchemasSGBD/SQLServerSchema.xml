@@ -27,5 +27,19 @@
 			<value>${V1}</value>
 			<end>)</end>
 		</command>
+		<command type="update">
+			<update>UPDATE</update>
+			<table>${V1}</table>
+			<set>SET</set>
+			<column>${V1} = ${V2}</column>
+			<where>WHERE ${V1} = ${V2}</where>
+			<and>AND ${V1} = ${V2}</and>
+		</command>
+		<command type="delete">
+			<delete>DELETE</delete>
+			<from>FROM ${V1}</from>
+			<where>WHERE ${V1} = ${V2}</where>
+			<and>AND ${V1} = ${V2}</and>
+		</command>
 	</commands>
 </sgbd>

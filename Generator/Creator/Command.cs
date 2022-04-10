@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -19,11 +20,17 @@ namespace SQLGenerator.Creator
 
         public Command(SGBDType SGBD)
         {
-            this.SGBD = SGBD;            
+            this.SGBD = SGBD;
+
+            
         }
 
         public override string ToString()
         {
+            var commandEnd = GetCommandText(InstructionType.END);
+            if (commandEnd != null)
+                AddCommand(InstructionType.END, commandEnd);
+
             string output = "";
             foreach (XmlNode node in CommandSchema.ChildNodes)
             {
@@ -37,9 +44,7 @@ namespace SQLGenerator.Creator
 
             }
 
-
-
-            return output;
+            return Regex.Replace(output, @"\t|\n|\r", "");
         }
 
         public void AddCommand(InstructionType type, string command)

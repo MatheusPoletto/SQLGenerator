@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace SQLGenerator.Creator
 {
-    public  class InsertCommand : Command
+    public  class DeleteCommand : Command
     {
-        public InsertCommand(SGBDType SGBD) : base(SGBD)
+        public DeleteCommand(SGBDType SGBD) : base(SGBD)
         {
-            Type = Models.Enums.DMLType.INSERT;
+            Type = Models.Enums.DMLType.DELETE;
             LoadCommandSchema();
-
-          
         }
 
     
