@@ -8,6 +8,8 @@
 			<column>${V1} AS ${V2}</column>
 			<from>FROM ${V1}</from>
 			<join>INNER JOIN ${V1} ON 0 = 0 <and>AND ${V1} = ${V2}</and></join>
+			<where>WHERE ${V1} = ${V2}</where>
+			<and>AND ${V1} = ${V2}</and>
 		</command>
 	</commands>
 </sgbd>

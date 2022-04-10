@@ -16,6 +16,8 @@ namespace Generator.Models.Enums
         COLUMN,
         FROM,
         JOIN,
-        JOIN_AND
+        JOIN_AND,
+        WHERE,
+        AND
     }
 }

@@ -123,6 +123,29 @@ namespace Generator.Extensions
             return sql;
         }
 
+        public static SelectCommand Where(this SelectCommand sql, string onA, string onB)
+        {
+            InstructionType type = InstructionType.WHERE;
+            string command = sql
+                .GetCommandText(type)
+                .Replace(ValueTags.V1, onA)
+                .Replace(ValueTags.V2, onB);
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
+
+        public static SelectCommand And(this SelectCommand sql, string onA, string onB)
+        {
+            InstructionType type = InstructionType.AND;
+            string command = sql
+                .GetCommandText(type)
+                .Replace(ValueTags.V1, onA)
+                .Replace(ValueTags.V2, onB);
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
 
 
     }

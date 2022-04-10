@@ -26,6 +26,17 @@ var sql2 = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
         new And("Multiple.Id", "AnotherTable.Id")
     });
 
-Console.WriteLine(sql2);
+var sql3 = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
+    .Select()
+    .Columns(new List<Column>()
+    {
+        new Column("TestTable", "Id"),
+        new Column("TestTable", "Descrition")
+    })
+    .From("TestTable")
+    .Where("CD_ID", "@CD_ID")
+    .And("ENABLED", "@ENABLED");
+
+Console.WriteLine(sql3);
 
 Console.ReadLine();
