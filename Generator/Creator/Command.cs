@@ -74,7 +74,7 @@ namespace Generator.Creator
 
         public string GetCommandText(InstructionType instruction)
         {
-            return CommandSchema.SelectSingleNode(instruction.ToString().ToLower()).InnerText;
+            return CommandSchema.SelectSingleNode(instruction.ToString().ToLower().Replace("_", "/")).FirstChild.InnerText;
         }
     }
 }

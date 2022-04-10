@@ -14,6 +14,8 @@ namespace Generator.Models.Enums
         TOP,
         ALL,
         COLUMN,
-        FROM
+        FROM,
+        JOIN,
+        JOIN_AND
     }
 }

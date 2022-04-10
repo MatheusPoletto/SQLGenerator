@@ -80,6 +80,49 @@ namespace Generator.Extensions
             return sql;
         }
 
+        public static SelectCommand Join(this SelectCommand sql, string table, string onA, string onB)
+        {
+            InstructionType type = InstructionType.JOIN;
+            string command = sql
+                .GetCommandText(type)
+                .Replace(ValueTags.V1, table);
+
+            string andCommand = sql
+                .GetCommandText(InstructionType.JOIN_AND)
+                .Replace(ValueTags.V1, onA)
+                .Replace(ValueTags.V2, onB);
+
+            command += andCommand;
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
+
+        public static SelectCommand Join(this SelectCommand sql, string table, List<And> andItems)
+        {
+            InstructionType type = InstructionType.JOIN;
+            string command = sql
+                .GetCommandText(type)
+                .Replace(ValueTags.V1, table);
+
+            var andCommand = sql
+                    .GetCommandText(InstructionType.JOIN_AND);
+            foreach (var and in andItems)
+            {
+                string item = andCommand
+                    .Replace(ValueTags.V1, and.OnA)
+                    .Replace(ValueTags.V2, and.OnB);
+
+                command += item + " ";
+            }
+
+            if (command.EndsWith(" "))
+                command = command.Substring(0, command.Length - 1);
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
+
 
 
     }

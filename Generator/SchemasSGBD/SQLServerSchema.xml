@@ -6,7 +6,8 @@
 			<top>TOP ${V1}</top>
 			<all>*</all>
 			<column>${V1} AS ${V2}</column>
-			<from>FROM ${V1}</from>			
+			<from>FROM ${V1}</from>
+			<join>INNER JOIN ${V1} ON 0 = 0 <and>AND ${V1} = ${V2}</and></join>
 		</command>
 	</commands>
 </sgbd>
