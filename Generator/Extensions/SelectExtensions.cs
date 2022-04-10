@@ -192,5 +192,44 @@ namespace Generator.Extensions
             sql.AddCommand(type, command);
             return sql;
         }
+
+        public static SelectCommand GroupBy(this SelectCommand sql, string item)
+        {
+            InstructionType type = InstructionType.GROUPBY;
+            string command = sql
+                .GetCommandText(type);
+
+            string groupItem = sql
+                .GetCommandText(InstructionType.GROUPBY_ITEM)
+                .Replace(ValueTags.V1, item);
+
+            command += groupItem;
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
+
+        public static SelectCommand GroupBy(this SelectCommand sql, List<string> groupItems)
+        {
+            InstructionType type = InstructionType.GROUPBY;
+            string command = sql
+                .GetCommandText(type);
+
+            var groupItemCommand = sql
+                    .GetCommandText(InstructionType.GROUPBY_ITEM);
+            foreach (var item in groupItems)
+            {
+                string text = groupItemCommand
+                    .Replace(ValueTags.V1, item);
+
+                command += text + ", ";
+            }
+
+            if (command.EndsWith(", "))
+                command = command.Substring(0, command.Length - 2);
+
+            sql.AddCommand(type, command);
+            return sql;
+        }
     }
 }

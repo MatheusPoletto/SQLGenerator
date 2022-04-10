@@ -21,6 +21,8 @@ namespace Generator.Models.Enums
         AND,
         ORDERBY,
         ORDERBY_ASC,
-        ORDERBY_DESC
+        ORDERBY_DESC,
+        GROUPBY,
+        GROUPBY_ITEM
     }
 }

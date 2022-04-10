@@ -13,6 +13,7 @@
 				<asc>${V1} ASC</asc>
 				<desc>${V1} DESC</desc>
 			</orderby>
+			<groupby>GROUP BY <item>${V1}</item></groupby>
 			<top>LIMIT ${V1}</top>
 		</command>
 	</commands>
