@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generator.Models.Enums
+namespace SQLGenerator.Models.Enums
 {
     public enum InstructionType
     {
@@ -23,6 +23,11 @@ namespace Generator.Models.Enums
         ORDERBY_ASC,
         ORDERBY_DESC,
         GROUPBY,
-        GROUPBY_ITEM
+        GROUPBY_ITEM,
+        INSERT,
+        INTO,
+        VALUES,
+        VALUE,
+        END
     }
 }

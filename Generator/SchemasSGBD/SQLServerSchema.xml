@@ -19,5 +19,13 @@
 				GROUP BY <item>${V1}</item>
 			</groupby>
 		</command>
+		<command type="insert">
+			<insert>INSERT</insert>
+			<into>INTO ${V1} (</into>
+			<column>${V1}</column>
+			<values>) VALUES (</values>			
+			<value>${V1}</value>
+			<end>)</end>
+		</command>
 	</commands>
 </sgbd>

@@ -1,9 +1,9 @@
-﻿using Generator.Creator;
-using Generator.Extensions;
-using Generator.Models;
-using Generator.Models.Enums;
+﻿using SQLGenerator.Creator;
+using SQLGenerator.Extensions;
+using SQLGenerator.Models;
+using SQLGenerator.Models.Enums;
 
-var sql = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
+var sql = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.SQLServer)
     .Select()    
     .Columns(new List<Column>()
     {
@@ -12,7 +12,7 @@ var sql = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
     })
     .From("TestTable");
 
-var sql2 = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
+var sql2 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.SQLServer)
     .Select()
     .Columns(new List<Column>()
     {
@@ -27,7 +27,7 @@ var sql2 = new SelectCommand(Generator.Models.Enums.SGBDType.SQLServer)
         new And("Multiple.Id", "AnotherTable.Id")
     });
 
-var sql3 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
+var sql3 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Select()
     .Distinct()
     .Top(10)
@@ -40,7 +40,7 @@ var sql3 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
     .Where("CD_ID", "@CD_ID")
     .And("ENABLED", "@ENABLED");
 
-var sql4 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
+var sql4 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Select()
     .Distinct()
     .Top(10)
@@ -52,7 +52,7 @@ var sql4 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
     .From("TestTable")
     .OrderBy("TestTable.Id");
 
-var sql5 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
+var sql5 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Select()
     .Distinct()
     .Top(10)
@@ -69,5 +69,16 @@ var sql5 = new SelectCommand(Generator.Models.Enums.SGBDType.PostgreSQL)
     });
 
 Console.WriteLine(sql5);
+
+var sql6 = new InsertCommand(SGBDType.SQLServer)
+    .Insert()
+    .Into("TestTable")
+    .Columns(new List<string>()
+    {
+        "Id",
+        "Name"
+    });
+
+Console.WriteLine(sql6);
 
 Console.ReadLine();

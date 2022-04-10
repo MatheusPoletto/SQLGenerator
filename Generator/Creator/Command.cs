@@ -1,5 +1,5 @@
-﻿using Generator.Models;
-using Generator.Models.Enums;
+﻿using SQLGenerator.Models;
+using SQLGenerator.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Generator.Creator
+namespace SQLGenerator.Creator
 {
     public abstract class Command
     {
@@ -19,8 +19,7 @@ namespace Generator.Creator
 
         public Command(SGBDType SGBD)
         {
-            this.SGBD = SGBD;
-            LoadCommandSchema();
+            this.SGBD = SGBD;            
         }
 
         public override string ToString()
@@ -31,12 +30,14 @@ namespace Generator.Creator
                 InstructionType type;
                 Enum.TryParse(node.Name.ToUpper(), out type);
 
-                foreach(var item in Commands.Where(c => c.Type == type))
+                foreach (var item in Commands.Where(c => c.Type == type))
                 {
                     output += item.Command + " ";
                 }
 
             }
+
+
 
             return output;
         }
@@ -76,7 +77,11 @@ namespace Generator.Creator
 
         public string GetCommandText(InstructionType instruction)
         {
-            return CommandSchema.SelectSingleNode(instruction.ToString().ToLower().Replace("_", "/")).FirstChild.InnerText;
+            string instructionDef = instruction.ToString().ToLower().Replace("_", "/");
+            var node = CommandSchema.SelectSingleNode(instructionDef);
+            if (node == null)
+                return null;
+            return node.FirstChild.InnerText;
         }
     }
 }

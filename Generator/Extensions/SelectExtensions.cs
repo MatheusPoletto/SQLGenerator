@@ -1,13 +1,13 @@
-﻿using Generator.Creator;
-using Generator.Models;
-using Generator.Models.Enums;
+﻿using SQLGenerator.Creator;
+using SQLGenerator.Models;
+using SQLGenerator.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generator.Extensions
+namespace SQLGenerator.Extensions
 {
     public static class SelectExtensions
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Generator {
+namespace SQLGenerator {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Generator {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Generator.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SQLGenerator.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -72,10 +72,12 @@ namespace Generator {
         ///			&lt;join&gt;INNER JOIN ${V1} ON 0 = 0 &lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;&lt;/join&gt;
         ///			&lt;where&gt;WHERE ${V1} = ${V2}&lt;/where&gt;
         ///			&lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;
-        ///			&lt;top&gt;LIMIT ${V1}&lt;/top&gt;
-        ///		&lt;/command&gt;
-        ///	&lt;/commands&gt;
-        ///&lt;/sgbd&gt;.
+        ///			&lt;orderby&gt;ORDER BY 
+        ///				&lt;asc&gt;${V1} ASC&lt;/asc&gt;
+        ///				&lt;desc&gt;${V1} DESC&lt;/desc&gt;
+        ///			&lt;/orderby&gt;
+        ///			&lt;groupby&gt;GROUP BY &lt;item&gt;${V1}&lt;/item&gt;&lt;/groupby&gt;
+        ///			&lt;top&gt;LIMI [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string PostgreSQLSchema {
             get {
@@ -96,9 +98,13 @@ namespace Generator {
         ///			&lt;join&gt;INNER JOIN ${V1} ON 0 = 0 &lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;&lt;/join&gt;
         ///			&lt;where&gt;WHERE ${V1} = ${V2}&lt;/where&gt;
         ///			&lt;and&gt;AND ${V1} = ${V2}&lt;/and&gt;
-        ///		&lt;/command&gt;
-        ///	&lt;/commands&gt;
-        ///&lt;/sgbd&gt;.
+        ///			&lt;orderby&gt;
+        ///				ORDER BY
+        ///				&lt;asc&gt;${V1} ASC&lt;/asc&gt;
+        ///				&lt;desc&gt;${V1} DESC&lt;/desc&gt;
+        ///			&lt;/orderby&gt;
+        ///			&lt;groupby&gt;
+        ///				GROUP BY &lt;item&gt; [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string SQLServerSchema {
             get {

@@ -1,11 +1,11 @@
-﻿using Generator.Models.Enums;
+﻿using SQLGenerator.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generator.Models
+namespace SQLGenerator.Models
 {
     public class CommandItem
     {

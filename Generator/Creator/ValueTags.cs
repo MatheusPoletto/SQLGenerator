@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generator.Creator
+namespace SQLGenerator.Creator
 {
     public static class ValueTags
     {
