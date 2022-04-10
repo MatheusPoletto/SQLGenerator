@@ -1,0 +1,12 @@
+<sgbd type="SQLServer">
+	<commands>
+		<command type="select">
+			<select>SELECT</select>	
+			<distinct>DISTINCT</distinct>			
+			<top>TOP ${V1}</top>
+			<all>*</all>
+			<column>${V1} AS ${V2}</column>
+			<from>FROM ${V1}</from>			
+		</command>
+	</commands>
+</sgbd>
