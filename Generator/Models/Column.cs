@@ -10,5 +10,19 @@ namespace Generator.Models
     {
         public string Name { get; set; }
         public string Alias { get; set; }
+        public string TableName { get; set; }
+
+        public Column(string tableName, string columnName, string columnAlias)
+        {
+            TableName = tableName;
+            Name = columnName;
+            Alias = columnAlias;
+        }
+
+        public Column(string columnName, string columnAlias)
+        {
+            Name = columnName;
+            Alias = columnAlias;
+        }
     }
 }

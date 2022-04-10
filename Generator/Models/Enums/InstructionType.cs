@@ -9,6 +9,7 @@ namespace Generator.Models.Enums
     public enum InstructionType
     {
         SELECT,
+        SUBSELECT,
         DISTINCT,
         TOP,
         ALL,

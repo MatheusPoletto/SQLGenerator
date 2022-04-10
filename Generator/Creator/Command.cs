@@ -1,4 +1,5 @@
-﻿using Generator.Models.Enums;
+﻿using Generator.Models;
+using Generator.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Generator.Creator
         protected DMLType Type { get; set; }
         protected XmlNode CommandSchema { get; set; }
 
-        private Dictionary<InstructionType, string> Commands = new Dictionary<InstructionType, string>();
+        private List<CommandItem> Commands = new List<CommandItem>();
 
         public Command(SGBDType SGBD)
         {
@@ -30,10 +31,11 @@ namespace Generator.Creator
                 InstructionType type;
                 Enum.TryParse(node.Name.ToUpper(), out type);
 
-                if (Commands.ContainsKey(type))
+                foreach(var item in Commands.Where(c => c.Type == type))
                 {
-                    output += Commands[type] + " ";
+                    output += item.Command + " ";
                 }
+
             }
 
             return output;
@@ -41,7 +43,7 @@ namespace Generator.Creator
 
         public void AddCommand(InstructionType type, string command)
         {
-            Commands.Add(type, command);
+            Commands.Add(new CommandItem(type, command));
         }
 
         protected string GetResourceSchemaFromSGBD()
