@@ -20,7 +20,6 @@ PostgreSQL.</Description>
     <Company>Matheus Poletto</Company>
     <Authors>Matheus Poletto</Authors>
     <Product>SQLGenerator</Product>
-    <PackageId>SQLGenerator</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
