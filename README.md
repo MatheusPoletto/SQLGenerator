@@ -1,7 +1,5 @@
 # SQLGenerator 
 
-<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/MatheusPoletto/SQLGenerator?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/MatheusPoletto/SQLGenerator?style=for-the-badge)
 
@@ -16,6 +14,11 @@ This project is currently developed using .NET CORE 6.
 
 Releases are distributed through NuGet packages available in the ./Generator/Releases folder.
 
+### Current SGBD supported
+
+- PostgreSQL
+- SQLServer
+
 ### Adjustments and improvements
 
 The project is still under development and the next updates will focus on the following tasks:
@@ -23,6 +26,7 @@ The project is still under development and the next updates will focus on the fo
 - [ ] Improvements in command generation
 - [ ] Exit code identification
 - [ ] Availability of commands through API
+- [ ] Expand support for Oracle and MySQL
 
 ## 💻 Requirements
 
