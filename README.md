@@ -1,7 +1,7 @@
 # SQLGenerator 
 
-![GitHub repo size](https://img.shields.io/github/repo-size/MatheusPoletto/SQLGenerator?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/MatheusPoletto/SQLGenerator?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/MatheusPoletto/SQLGenerator)
+![GitHub language count](https://img.shields.io/github/languages/count/MatheusPoletto/SQLGenerator)
 
 <img src="./Resources/database.png" alt="exemplo imagem" width="20%">
 
