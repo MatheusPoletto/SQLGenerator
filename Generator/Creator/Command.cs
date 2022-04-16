@@ -1,4 +1,5 @@
-﻿using SQLGenerator.Models;
+﻿using SQLGenerator.GlobalConfiguration;
+using SQLGenerator.Models;
 using SQLGenerator.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,26 @@ namespace SQLGenerator.Creator
 
         private List<CommandItem> Commands = new List<CommandItem>();
 
-        public Command(SGBDType SGBD)
+        public ObjectMappingConfiguration MappingConfiguration;
+
+        public Command(SGBDType SGBD, ObjectMappingConfiguration mappingConfiguration = null)
         {
             this.SGBD = SGBD;
 
-            
+            MappingConfiguration = mappingConfiguration == null ?
+                    GetDefaultMappingConfiguration()
+                    : mappingConfiguration;
+
+        }
+
+        protected void ClearCommands()
+        {
+            this.Commands.Clear();
+        }
+
+        protected ObjectMappingConfiguration GetDefaultMappingConfiguration()
+        {
+            return new ObjectMappingConfiguration();
         }
 
         public override string ToString()
@@ -43,7 +59,7 @@ namespace SQLGenerator.Creator
                 }
 
             }
-
+            ClearCommands();
             return Regex.Replace(output, @"\t|\n|\r", "");
         }
 

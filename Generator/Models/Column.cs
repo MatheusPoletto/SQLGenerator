@@ -19,7 +19,7 @@ namespace SQLGenerator.Models
             Alias = columnAlias;
         }
 
-        public Column(string columnName, string columnAlias)
+        public Column(string columnName, string columnAlias = "")
         {
             Name = columnName;
             Alias = columnAlias;

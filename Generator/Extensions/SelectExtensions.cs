@@ -38,11 +38,12 @@ namespace SQLGenerator.Extensions
             return sql;
         }
 
-        public static SelectCommand Columns(this SelectCommand sql)
+        public static SelectCommand Columns<T>(this SelectCommand sql)
         {
-            InstructionType type = InstructionType.ALL;
-            string command = sql.GetCommandText(type);
-            sql.AddCommand(type, command);
+            string columns = new ObjectMap().GetAllSelectColumns<T>(sql.MappingConfiguration);
+
+            InstructionType type = InstructionType.COLUMN;
+            sql.AddCommand(type, columns);
             return sql;
         }
 
@@ -58,7 +59,7 @@ namespace SQLGenerator.Extensions
 
                 result += command
                     .Replace(ValueTags.V1, tableIdentifier + column.Name)
-                    .Replace(ValueTags.V2, String.IsNullOrEmpty(column.Alias) ?  column.Name : column.Alias);
+                    .Replace(ValueTags.V2, String.IsNullOrEmpty(column.Alias) ?  column.Name : $"{sql.MappingConfiguration.AliasPrefix} {column.Alias}");
                 result += ", ";
             }
 

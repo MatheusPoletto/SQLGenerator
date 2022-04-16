@@ -2,8 +2,7 @@
 	<commands>
 		<command type="select">
 			<select>SELECT</select>	
-			<distinct>DISTINCT</distinct>			
-			<all>*</all>
+			<distinct>DISTINCT</distinct>		
 			<column>${V1} AS ${V2}</column>
 			<from>FROM ${V1}</from>
 			<join>INNER JOIN ${V1} ON 0 = 0 <and>AND ${V1} = ${V2}</and></join>

@@ -1,31 +1,15 @@
-﻿using SQLGenerator.Creator;
+﻿using Exe;
+using SQLGenerator.Creator;
 using SQLGenerator.Extensions;
+using SQLGenerator.GlobalConfiguration;
 using SQLGenerator.Models;
 using SQLGenerator.Models.Enums;
 
 var sql = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.SQLServer)
     .Select()    
-    .Columns(new List<Column>()
-    {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
-    })
+    .Columns<Risk>()    
     .From("TestTable");
 
-var sql2 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.SQLServer)
-    .Select()
-    .Columns(new List<Column>()
-    {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
-    })
-    .From("TestTable")
-    .Join("OtherTable", "OtherTable.Id", "TestTable.Id")
-    .Join("AnotherTable", "AnotherTable.Id", "TestTable.Id")
-    .Join("Multiple", new List<And>() { 
-        new And("Multiple.Id", "1"),
-        new And("Multiple.Id", "AnotherTable.Id")
-    });
 
 var sql3 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Select()
@@ -33,8 +17,8 @@ var sql3 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Top(10)
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .Where("CD_ID", "@CD_ID")
@@ -46,8 +30,8 @@ var sql4 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Top(10)
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .OrderBy("TestTable.Id");
@@ -58,8 +42,8 @@ var sql5 = new SelectCommand(SQLGenerator.Models.Enums.SGBDType.PostgreSQL)
     .Top(10)
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .OrderBy(new List<OrderBy>()
