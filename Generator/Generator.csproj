@@ -23,7 +23,7 @@ PostgreSQL.</Description>
     <PackageId>SQLGenerator</PackageId>
     <FileVersion></FileVersion>
     <AssemblyVersion></AssemblyVersion>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
