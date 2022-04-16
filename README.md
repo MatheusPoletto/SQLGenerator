@@ -53,9 +53,19 @@ string sql =
     .Select()    
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Description")
+        new Column("Id"),
+        new Column("Description")
     })
+    .From("TestTable");
+```
+
+Select with auto map columns from a class:
+ 
+```
+string sql = 
+    new SelectCommand(SGBDType.SQLServer)
+    .Select()    
+    .Columns<Client>()
     .From("TestTable");
 ```
 
@@ -68,8 +78,8 @@ string sql =
     .Top(10)
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .Where("CD_ID", "@CD_ID")
@@ -83,8 +93,8 @@ string sql =
     .Select()
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .Join("OtherTable", "OtherTable.Id", "TestTable.Id")
@@ -105,8 +115,8 @@ string sql =
     .Top(10)
     .Columns(new List<Column>()
     {
-        new Column("TestTable", "Id"),
-        new Column("TestTable", "Descrition")
+        new Column("Id"),
+        new Column("Descrition")
     })
     .From("TestTable")
     .OrderBy(new List<OrderBy>()
