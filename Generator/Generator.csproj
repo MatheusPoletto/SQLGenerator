@@ -21,6 +21,9 @@ PostgreSQL.</Description>
     <Authors>Matheus Poletto</Authors>
     <Product>SQLGenerator</Product>
     <PackageId>SQLGenerator</PackageId>
+    <FileVersion></FileVersion>
+    <AssemblyVersion></AssemblyVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
